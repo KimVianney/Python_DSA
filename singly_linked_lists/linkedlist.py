@@ -86,6 +86,20 @@ class LinkedList:
             prev.next = cur_node.next
             cur_node = None
 
+    def len_iterative(self):
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+
+        return count
+
+    def len_recursive(self, node):
+        if node is None:
+            return 0
+        return 1 + self.len_recursive(node.next)
+
 
 
 
@@ -104,3 +118,7 @@ llist.delete_node_at_pos(3)
 llist.delete_node_at_pos(0)
 
 llist.print_list()
+print(llist.len_iterative())
+
+print("The length of an empty linked list is: ")
+print(llist.len_recursive(llist.head))
